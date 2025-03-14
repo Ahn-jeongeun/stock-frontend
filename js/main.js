@@ -16,14 +16,14 @@ document.addEventListener('DOMContentLoaded', function () {
 
   // 모달 열기 함수 (Sign In)
   function openSigninModal() {
-    signinModal.style.display = 'block';
+    signinModal.style.display = 'flex';
     signinModal.classList.add('show');
     signupModal.style.display = 'none'; // Sign Up 모달은 숨기기
   }
 
   // Sign Up 모달 열기 함수
   function openSignupModal() {
-    signupModal.style.display = 'block';
+    signupModal.style.display = 'flex';
     signupModal.classList.add('show');
     modal.style.display = 'none'; // Sign In 모달은 숨기기
   }
@@ -42,13 +42,13 @@ document.addEventListener('DOMContentLoaded', function () {
   // Sign Up 버튼 클릭 시 Sign Up 모달 열기
   signUpBtn.addEventListener('click', openSignupModal);
 
-  // "Free Sign Up" 링크 클릭 시 Sign Up 모달 열기
+  // Sign Up 링크 클릭 시 Sign Up 모달 열기
   signupLink.addEventListener('click', function (event) {
     event.preventDefault(); // 기본 링크 동작을 막음
     openSignupModal();
   });
 
-  // "Sign In" 링크 클릭 시 Sign In 모달 열기
+  // Sign In 링크 클릭 시 Sign In 모달 열기
   signinLink.addEventListener('click', function (event) {
     event.preventDefault(); // 기본 링크 동작을 막음
     openSigninModal();
