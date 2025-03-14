@@ -1,0 +1,6 @@
+@import './header.css';
+@import './modal.css';
+
+html {
+  font-family: Arial, Helvetica, sans-serif;
+}
