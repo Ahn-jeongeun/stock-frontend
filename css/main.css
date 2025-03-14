@@ -39,6 +39,7 @@ table {
 
   tbody {
     font-size: 1.4rem;
+    display: none;
 
     th {
       text-align: left;
@@ -53,8 +54,15 @@ table {
 
     .chg,
     .chgP {
-      color: var(--green);
       font-weight: 600;
     }
+  }
+
+  .plus {
+    color: var(--green);
+  }
+
+  .minus {
+    color: var(--red);
   }
 }
