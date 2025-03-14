@@ -29,6 +29,8 @@ socket.addEventListener('message', (e) => {
   data.forEach((item) => {
     if (item.ev === 'AM') {
       const tr = document.getElementById(item.sym);
+
+      // 기존에 있는 리스트이면
       if (tr) {
         console.log(tr.children);
         tr[1].innerText = item.a;
@@ -39,6 +41,7 @@ socket.addEventListener('message', (e) => {
         tr[6].innerText = item.v;
         tr[7].innerText = convertTime(item.e);
       } else {
+        // 새 리스트 추가
         const tr = document.createElement('tr');
         tr.id = item.sym;
 
@@ -60,7 +63,7 @@ socket.addEventListener('message', (e) => {
         vol.innerText = item.v;
         time.innerText = convertTime(item.e);
 
-        tr.append(th, avg, high, low, chg, chgP, vol, time);
+        tr.append(name, avg, high, low, chg, chgP, vol, time);
         tbody.appendChild(tr);
       }
     }

@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="./css/reset.css" />
     <link rel="stylesheet" href="./css/global.css" />
 
+    <script src="https://cdn.jsdelivr.net/npm/dayjs@1/dayjs.min.js"></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <title>UrekaStocks</title>
   </head>
@@ -34,7 +35,7 @@
         <thead>
           <tr>
             <th scope="col">Name</th>
-            <th scope="col">Last</th>
+            <th scope="col">Avg</th>
             <th scope="col">High</th>
             <th scope="col">Low</th>
             <th scope="col">Chg.</th>
@@ -44,16 +45,7 @@
           </tr>
         </thead>
         <tbody>
-          <tr id="AAPL">
-            <th scope="row">AAPL</th>
-            <td>150.00</td>
-            <td>155.00</td>
-            <td>148.00</td>
-            <td class="chg">+2.00</td>
-            <td class="chgP">+1.35%</td>
-            <td>1,200,000</td>
-            <td>10:30 AM</td>
-          </tr>
+          <!-- Stock list -->
         </tbody>
       </table>
     </main>
@@ -107,7 +99,6 @@
         <p class="signup-text">Already have an account? <a href="#" class="signin-link">Sign In</a></p>
       </div>
     </div>
-
     <script type="module" src="./js/axios.js"></script>
     <script type="module" src="./js/main.js"></script>
     <script type="module" src="./js/stocks.js"></script>
