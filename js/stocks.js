@@ -36,13 +36,13 @@ export function createTableRow(data) {
   low.innerText = fixAndLocale(data.low);
 
   const chgValue = data.afterHours - data.open;
-  const chgColorClassName = chgValue >= 0 ? 'plus' : 'minus';
-  const sign = chgValue >= 0 ? '+' : '';
+  const colorClassName = chgValue >= 0 ? 'plus' : 'minus';
+  const sign = chgValue > 0 ? '+' : '';
   const chgPValue = ((data.afterHours - data.open) / data.open) * 100;
   chg.innerText = sign + fixAndLocale(data.afterHours - data.open);
-  chg.classList.add('chg', chgColorClassName);
+  chg.classList.add('chg', colorClassName);
   chgP.innerText = sign + fixAndLocale(chgPValue) + '%';
-  chgP.classList.add('chgP', chgColorClassName);
+  chgP.classList.add('chgP', colorClassName);
 
   vol.innerText = fixAndLocale(data.volume / MILLION) + 'M';
   time.innerText = `${data.from.split('-')[1]}/${data.from.split('-')[2]}`;
