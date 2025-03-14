@@ -1,6 +1,7 @@
 import { POLY_API_KEY } from './confjg.js';
 
 const tbody = document.querySelector('tbody');
+const stock = document.getElementById('AAPL');
 
 const socket = new WebSocket('wss://delayed.polygon.io/stocks');
 const TOP_10_IT_TICKERS = 'AM.AAPL,AM.MSFT,AM.NVDA,AM.GOOGL,AM.AMZN,AM.META,AM.TSLA,AM.AVGO,AM.TSM,AM.BRK.A';
@@ -28,32 +29,41 @@ socket.addEventListener('message', (e) => {
   // 주식 정보
   data.forEach((item) => {
     if (item.ev === 'AM') {
-      const tr = document.createElement('tr');
-      const th = document.createElement('th');
-      const avg = document.createElement('td');
-      const high = document.createElement('td');
-      const low = document.createElement('td');
-      const chg = document.createElement('td');
-      const chgP = document.createElement('td');
-      const vol = document.createElement('td');
-      const time = document.createElement('td');
-      th.innerText = item.sym;
-      th.scope = 'row';
-      avg.innerText = item.a;
-      high.innerText = item.h;
-      low.innerText = item.l;
-      chg.innerText = item.c - item.o;
-      chgP.innerText = ((item.c - item.o) / item.o) * 100;
-      vol.innerText = item.v;
+      const tr = document.getElementById(item.sym);
+      if (tr) {
+        console.log(tr.children);
+        tr[1].innerText = item.a;
+        tr[2].innerText = item.h;
+        tr[3].innerText = item.l;
+        tr[4].innerText = item.c - item.o;
+        tr[5].innerText = ((item.c - item.o) / item.o) * 100;
+        tr[6].innerText = item.v;
+        tr[7].innerText = convertTime(item.e);
+      } else {
+        const tr = document.createElement('tr');
+        tr.id = item.sym;
 
-      const date = new Date(item.e);
-      const hours = date.getUTCHours().toString().padStart(2, '0');
-      const minutes = date.getUTCMinutes().toString().padStart(2, '0');
-      const seconds = date.getUTCSeconds().toString().padStart(2, '0');
-      time.innerText = `${hours}:${minutes}:${seconds}`;
+        const name = document.createElement('th');
+        const avg = document.createElement('td');
+        const high = document.createElement('td');
+        const low = document.createElement('td');
+        const chg = document.createElement('td');
+        const chgP = document.createElement('td');
+        const vol = document.createElement('td');
+        const time = document.createElement('td');
+        name.innerText = item.sym;
+        name.scope = 'row';
+        avg.innerText = item.a;
+        high.innerText = item.h;
+        low.innerText = item.l;
+        chg.innerText = item.c - item.o;
+        chgP.innerText = ((item.c - item.o) / item.o) * 100;
+        vol.innerText = item.v;
+        time.innerText = convertTime(item.e);
 
-      tr.append(th, avg, high, low, chg, chgP, vol, time);
-      tbody.appendChild(tr);
+        tr.append(th, avg, high, low, chg, chgP, vol, time);
+        tbody.appendChild(tr);
+      }
     }
   });
 });
@@ -65,3 +75,11 @@ socket.addEventListener('error', (err) => {
 socket.addEventListener('close', (code, reason) => {
   console.log(`Closed:`, code, reason);
 });
+
+function convertTime(unixMs) {
+  const date = new Date(unixMs);
+  const hours = date.getUTCHours().toString().padStart(2, '0');
+  const minutes = date.getUTCMinutes().toString().padStart(2, '0');
+  const seconds = date.getUTCSeconds().toString().padStart(2, '0');
+  return `${hours}:${minutes}:${seconds}`;
+}
