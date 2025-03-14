@@ -11,10 +11,11 @@
     />
     <link rel="stylesheet" href="./css/reset.css" />
     <link rel="stylesheet" href="./css/global.css" />
-    
+
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <title>UrekaStocks</title>
   </head>
+
   <body>
     <header>
       <nav>
@@ -56,8 +57,8 @@
         </tbody>
       </table>
     </main>
-    
-    <!-- modal -->
+
+    <!-- Sign in modal -->
     <div id="signin" class="modal">
       <div class="modal-content">
         <div class="modal-header">
@@ -66,22 +67,22 @@
           <span class="close">&times;</span>
         </div>
         <form>
-    
-          <input type="email" id="email" placeholder="Email" required>
-          
-          
+          <input type="email" id="email" placeholder="Email" required />
+
           <div class="password-container">
-            <input type="password" id="password" placeholder="Password" required>
+            <input type="password" id="password" placeholder="Password" required />
             <span class="toggle-password">👁️</span>
           </div>
-          
+
           <a href="#" class="forgot-password">Forgot Password</a>
-          
+
           <button type="submit" class="sign-in-btn">Sign In</button>
         </form>
         <p class="signup-text">Don't have an account? <a href="#" class="signup-link">Free Sign Up</a></p>
       </div>
     </div>
+
+    <!-- Sign up modal -->
     <div id="signup" class="modal">
       <div class="modal-content">
         <div class="modal-header">
@@ -90,24 +91,23 @@
           <span class="close">&times;</span>
         </div>
         <form>
-          
-          <input type="name" id="name" placeholder="Name" required>
-          
-          <input type="email" id="email" placeholder="Email" required>
-        
+          <input type="name" id="name" placeholder="Name" required />
+
+          <input type="email" id="email" placeholder="Email" required />
+
           <div class="password-container">
-            <input type="password" id="password" placeholder="Password" required>
+            <input type="password" id="password" placeholder="Password" required />
             <span class="toggle-password">👁️</span>
           </div>
-          
-          <br></br>
-          
+
+          <br />
+
           <button type="submit" class="sign-in-btn">Create Account</button>
         </form>
         <p class="signup-text">Already have an account? <a href="#" class="signin-link">Sign In</a></p>
       </div>
     </div>
-    
+
     <script type="module" src="./js/axios.js"></script>
     <script type="module" src="./js/main.js"></script>
     <script type="module" src="./js/stocks.js"></script>
