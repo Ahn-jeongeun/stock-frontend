@@ -1,0 +1,12 @@
+#modal {
+  display: none;
+
+  #overlay {
+    position: fixed;
+    background-color: rgba(0, 0, 0, 0.6);
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
