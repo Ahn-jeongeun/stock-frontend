@@ -29,8 +29,35 @@
     </header>
     <main>
       <h1>Top 10 IT Stocks</h1>
-      <table></table>
+      <table>
+        <thead>
+          <tr>
+            <th scope="col">Name</th>
+            <th scope="col">Last</th>
+            <th scope="col">High</th>
+            <th scope="col">Low</th>
+            <th scope="col">Chg.</th>
+            <th scope="col">Chg. %</th>
+            <th scope="col">Vol.</th>
+            <th scope="col">Time</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr id="AAPL">
+            <th scope="row">AAPL</th>
+            <td>150.00</td>
+            <td>155.00</td>
+            <td>148.00</td>
+            <td class="chg">+2.00</td>
+            <td class="chgP">+1.35%</td>
+            <td>1,200,000</td>
+            <td>10:30 AM</td>
+          </tr>
+        </tbody>
+      </table>
     </main>
+    
+    <!-- modal -->
     <div id="signin" class="modal">
       <div class="modal-content">
         <div class="modal-header">
@@ -82,7 +109,8 @@
     </div>
     
     <script type="module" src="./js/axios.js"></script>
-    <script type="module" src="./js/socket.js"></script>
     <script type="module" src="./js/main.js"></script>
+    <script type="module" src="./js/stocks.js"></script>
+    <script type="module" src="./js/socket.js"></script>
   </body>
 </html>

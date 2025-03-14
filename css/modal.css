@@ -1,22 +1,14 @@
 /* 모달 스타일 */
 .modal {
   display: none;
-  position: fixed;  /* 고정 위치로 설정 */
-  top: 50%;          /* 세로 방향 중앙 */
-  left: 50%;         /* 가로 방향 중앙 */
-  transform: translate(-50%, -50%);  /* 중앙 정렬 */
+  position: fixed; /* 고정 위치로 설정 */
+  inset: 0;
   width: 100%;
   height: 100%;
   background-color: rgba(0, 0, 0, 0.5); /* 반투명 배경 */
-  display: flex;      /* 모달 내용을 중앙 정렬 */
   justify-content: center; /* 가로로 중앙 정렬 */
   align-items: center; /* 세로로 중앙 정렬 */
 }
-#modal.show {
-  display: block;
-}
-
-
 
 .modal-content {
   background: white;
@@ -24,7 +16,6 @@
   padding: 20px;
   border-radius: 2px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  
 }
 
 .modal-header {
@@ -36,7 +27,8 @@
   padding-bottom: 10px;
 }
 
-.back, .close {
+.back,
+.close {
   cursor: pointer;
   font-size: 20px;
 }
@@ -47,11 +39,9 @@ input {
   margin: 10px 0;
   margin-bottom: 15px;
   border: 1px solid #ccc;
-  
 }
 
 .password-container {
-  
   position: relative;
 }
 
@@ -67,7 +57,7 @@ input {
   display: block;
   text-align: right;
   margin: 10px 0;
-  color: #007BFF;
+  color: #007bff;
   text-decoration: none;
   font-size: 11px;
 }
@@ -93,8 +83,7 @@ input {
 }
 
 .signup-link {
-  color: #007BFF;
+  color: #007bff;
   text-decoration: none;
   font-size: 11px;
 }
-
