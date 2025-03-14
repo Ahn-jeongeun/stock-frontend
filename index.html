@@ -3,12 +3,39 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,100..900&family=Noto+Sans+KR:wght@600&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="./css/reset.css" />
     <link rel="stylesheet" href="./css/global.css" />
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-    <title>유레카 증권</title>
+    <title>UrekaStocks</title>
   </head>
   <body>
+    <header>
+      <nav>
+        <div class="logo">UrekaStocks</div>
+        <div>
+          <button class="signInBtn" type="button">Sign In</button>
+          <span> / </span>
+          <button class="signUpBtn" type="button">Sign Up</button>
+          <span class="userId user-id">사용자ID</span>
+        </div>
+      </nav>
+    </header>
+    <main>
+      <h1>Top 10 IT Stocks</h1>
+      <table></table>
+    </main>
+    <div id="modal">
+      <div id="overlay">
+        <!-- your modal component -->
+      </div>
+    </div>
+
     <script type="module" src="./js/axios.js"></script>
     <script type="module" src="./js/socket.js"></script>
     <script type="module" src="./js/main.js"></script>
