@@ -13,14 +13,12 @@ document.addEventListener('DOMContentLoaded', function () {
   // 모달 열기 함수 (Sign In)
   function openSigninModal() {
     signinModal.style.display = 'flex';
-    signinModal.classList.add('show');
     signupModal.style.display = 'none'; // Sign Up 모달은 숨기기
   }
 
   // Sign Up 모달 열기 함수
   function openSignupModal() {
     signupModal.style.display = 'flex';
-    signupModal.classList.add('show');
     modal.style.display = 'none'; // Sign In 모달은 숨기기
   }
 
@@ -28,8 +26,6 @@ document.addEventListener('DOMContentLoaded', function () {
   function closeModal() {
     signinModal.style.display = 'none';
     signupModal.style.display = 'none'; // Sign Up 모달도 닫기
-    signinModal.classList.remove('show');
-    signupModal.classList.remove('show');
   }
 
   // Sign In 버튼 클릭 시 모달 열기
