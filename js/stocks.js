@@ -1,6 +1,8 @@
 import { polyAxios } from './axios.js';
 import { fixAndLocale } from './util.js';
 
+dayjs.locale('ko');
+
 const MILLION = 1000000;
 const tickers = ['AAPL', 'MSFT', 'NVDA', 'GOOGL', 'AMZN', 'META', 'TSLA', 'AVGO', 'TSM', 'BRK.A'];
 let yesterday = dayjs().subtract(1, 'day'); // local time

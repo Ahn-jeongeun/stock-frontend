@@ -1,12 +1,10 @@
 import { POLY_API_KEY } from './confjg.js';
 import { fixAndLocale } from './util.js';
 
-dayjs.locale('ko');
+const TOP_10_IT_TICKERS = 'AM.AAPL,AM.MSFT,AM.NVDA,AM.GOOGL,AM.AMZN,AM.META,AM.TSLA,AM.AVGO,AM.TSM,AM.BRK.A';
 
 const tbody = document.querySelector('tbody');
-
 const socket = new WebSocket('wss://delayed.polygon.io/stocks');
-const TOP_10_IT_TICKERS = 'AM.AAPL,AM.MSFT,AM.NVDA,AM.GOOGL,AM.AMZN,AM.META,AM.TSLA,AM.AVGO,AM.TSM,AM.BRK.A';
 
 socket.addEventListener('open', (_) => {
   const data = JSON.stringify({ action: 'auth', params: POLY_API_KEY });

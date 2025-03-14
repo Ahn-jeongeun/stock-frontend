@@ -10,10 +10,6 @@ document.addEventListener('DOMContentLoaded', function () {
   const signupLink = document.querySelector('.signup-link');
   const signinLink = document.querySelector('.signin-link');
 
-  // 기본적으로 두 모달을 모두 숨김
-  signinModal.style.display = 'none';
-  signupModal.style.display = 'none';
-
   // 모달 열기 함수 (Sign In)
   function openSigninModal() {
     signinModal.style.display = 'flex';
@@ -52,13 +48,6 @@ document.addEventListener('DOMContentLoaded', function () {
   signinLink.addEventListener('click', function (event) {
     event.preventDefault(); // 기본 링크 동작을 막음
     openSigninModal();
-  });
-
-  // 모달 외부를 클릭하면 모달 닫기
-  window.addEventListener('click', function (event) {
-    if (event.target === modal || event.target === signupModal) {
-      closeModal();
-    }
   });
 
   // 모든 닫기 버튼 클릭 시 모달 닫기
