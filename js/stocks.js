@@ -7,10 +7,8 @@ let yesterday = dayjs().subtract(1, 'day'); // local time
 const tbody = document.querySelector('tbody');
 
 window.addEventListener('load', async () => {
-  for (const ticker of tickers) {
-    const data = await getStocks(ticker, yesterday.format('YYYY-MM-DD'));
-    createTableRow(data);
-  }
+  const results = await Promise.all(tickers.map((ticker) => getStocks(ticker, yesterday.format('YYYY-MM-DD'))));
+  results.forEach((data) => createTableRow(data));
   tbody.style.display = 'contents';
 });
 
