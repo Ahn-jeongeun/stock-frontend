@@ -19,9 +19,9 @@
       <nav>
         <div class="logo">UrekaStocks</div>
         <div>
-          <button type="button">Sign In</button>
+          <button class="signInBtn" type="button">Sign In</button>
           <span> / </span>
-          <button type="button">Sign Up</button>
+          <button class="signUpBtn" type="button">Sign Up</button>
           <span class="userId user-id">사용자ID</span>
         </div>
       </nav>
@@ -30,7 +30,11 @@
       <h1>Top 10 IT Stocks</h1>
       <table></table>
     </main>
-    <div id="modal"></div>
+    <div id="modal">
+      <div id="overlay">
+        <!-- your modal component -->
+      </div>
+    </div>
 
     <script type="module" src="./js/axios.js"></script>
     <script type="module" src="./js/socket.js"></script>
