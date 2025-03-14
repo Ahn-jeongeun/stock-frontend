@@ -1,7 +1,6 @@
 import { POLY_API_KEY } from './confjg.js';
 
 const tbody = document.querySelector('tbody');
-const stock = document.getElementById('AAPL');
 
 const socket = new WebSocket('wss://delayed.polygon.io/stocks');
 const TOP_10_IT_TICKERS = 'AM.AAPL,AM.MSFT,AM.NVDA,AM.GOOGL,AM.AMZN,AM.META,AM.TSLA,AM.AVGO,AM.TSM,AM.BRK.A';
