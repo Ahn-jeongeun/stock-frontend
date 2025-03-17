@@ -9,10 +9,21 @@ let yesterday = dayjs().subtract(1, 'day'); // local time
 const tbody = document.querySelector('tbody');
 
 window.addEventListener('load', async () => {
-  const results = await Promise.all(tickers.map((ticker) => getStocks(ticker, yesterday.format('YYYY-MM-DD'))));
+  const results = await getRecentStocks(dayjs().subtract(1, 'day'));
   results.forEach((data) => createTableRow(data));
   tbody.style.display = 'contents';
 });
+
+async function getRecentStocks(dayjs) {
+  let results = [];
+  try {
+    results = await Promise.all(tickers.map((ticker) => getStocks(ticker, dayjs.format('YYYY-MM-DD'))));
+  } catch (err) {
+    dayjs = dayjs.subtract(1, 'day');
+    results = await getRecentStocks(dayjs);
+  }
+  return results;
+}
 
 async function getStocks(ticker, date) {
   return await polyAxios.get(`/v1/open-close/${ticker}/${date}`).then((res) => res.data);
