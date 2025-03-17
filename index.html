@@ -31,7 +31,7 @@
           <button class="signInBtn" type="button">Sign In</button>
           <span> / </span>
           <button class="signUpBtn" type="button">Sign Up</button>
-          <span class="userId user-id">사용자ID</span>
+          <span class="userId user-id" id="userid">사용자ID</span>
         </div>
       </nav>
     </header>
@@ -65,16 +65,18 @@
           <span class="close">&times;</span>
         </div>
         <form>
-          <input type="email" id="email" placeholder="Email" required />
+          <input type="email" id="email" placeholder="Email" required autocomplete="username" />
+
 
           <div class="password-container">
-            <input type="password" id="password" placeholder="Password" required />
+            <input type="password" id="loginpassword" placeholder="Password" required autocomplete="current-password" />
+
             <span class="toggle-password">👁️</span>
           </div>
 
           <a href="#" class="forgot-password">Forgot Password</a>
 
-          <button type="submit" class="sign-in-btn">Sign In</button>
+          <button type="submit" class="sign-in-btn" id="loginBtn">Sign In</button>
         </form>
         <p class="signup-text">Don't have an account? <a href="#" class="signup-link">Free Sign Up</a></p>
       </div>
@@ -91,16 +93,16 @@
         <form>
           <input type="name" id="name" placeholder="Name" required />
 
-          <input type="email" id="email" placeholder="Email" required />
+          <input type="email" id="signup-email" placeholder="Email" required autocomplete="username" />
 
           <div class="password-container">
-            <input type="password" id="password" placeholder="Password" required />
-            <span class="toggle-password">👁️</span>
+            <input type="password" id="signuppassword" placeholder="Password" required autocomplete="new-password" />
+            <span class="toggle-password"></span>
           </div>
 
           <br />
 
-          <button type="submit" class="sign-in-btn">Create Account</button>
+          <button type="submit" class="sign-in-btn" id="signupBtn">Create Account</button>
         </form>
         <p class="signup-text">Already have an account? <a href="#" class="signin-link">Sign In</a></p>
       </div>
