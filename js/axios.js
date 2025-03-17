@@ -1,4 +1,4 @@
-import { POLY_API_KEY } from './confjg.js';
+import { POLY_API_KEY } from './config.js';
 
 const polyAxios = axios.create({
   baseURL: 'https://api.polygon.io',
