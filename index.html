@@ -27,7 +27,7 @@
 
           <!-- Wallet Popup -->
           <div class="wallet walletPopup">
-            <div class="wallet-header">Ureka Wallet</div>
+            <div class="wallet-header walletHeader">Ureka Wallet</div>
             <div class="wallet-body">
               <div class="account-info">
                 <img src="img/dollar.svg" alt="Dollar coin" />
@@ -41,10 +41,12 @@
               <div class="balance">
                 <!-- balance -->
               </div>
+              <input class="deposit depositInput" type="number" placeholder="$0" />
             </div>
             <div class="wallet-footer">
-              <button>Deposite</button>
-              <button>Withdraw</button>
+              <button type="button" class="depositBtn deposit">Deposit</button>
+              <button type="button" class="withdrawBtn withdraw">Withdraw</button>
+              <button type="button" class="confirm confirmBtn">Confirm</button>
             </div>
           </div>
           <div class="wallet-overlay walletOverlay" />

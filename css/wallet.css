@@ -29,7 +29,7 @@
     flex-direction: column;
     align-items: center;
     gap: 1.6rem;
-    padding: 3rem 0;
+    padding: 3rem 1rem;
 
     .account-info {
       display: flex;
@@ -52,6 +52,14 @@
     .balance {
       font-size: 2rem;
     }
+
+    input.deposit {
+      display: none;
+      border: none;
+      border-radius: 0.6rem;
+      background-color: #e5e7eb;
+      margin: 0;
+    }
   }
 
   .wallet-footer {
@@ -69,13 +77,18 @@
       padding: 0.6rem;
     }
 
-    button:first-child {
+    button.deposit {
       border-radius: 0.6rem 0 0 0.6rem;
     }
 
-    button:last-child {
+    button.withdraw {
       border-left: none;
       border-radius: 0 0.6rem 0.6rem 0;
+    }
+
+    button.confirm {
+      display: none;
+      border-radius: 0.6rem;
     }
   }
 }
