@@ -6,8 +6,8 @@ const polyAxios = axios.create({
 });
 
 const _axios = axios.create({
-  baseURL: 'http://localhost:8080',
-  headers: { Authorization: sessionStorage.getItem('auth') },
+  baseURL: 'http://localhost:8080/api',
+  headers: { Authorization: sessionStorage.getItem('auth') ?? '' },
 });
 
 _axios.interceptors.response.use(
