@@ -7,16 +7,18 @@ const polyAxios = axios.create({
 
 const _axios = axios.create({
   baseURL: 'http://localhost:8080/api',
-  headers: { Authorization: sessionStorage.getItem('auth') ?? '' },
+  headers: {
+    'Content-Type': 'application/json',
+    Authorization: sessionStorage.getItem('auth') ?? '',
+  },
 });
 
 _axios.interceptors.response.use(
   (res) => {
-    console.log('axios inter:', res);
     return res;
   },
   (error) => {
-    console.error('axios inter:', error);
+    if (error.status === 401) console.log('Please login again.');
     return Promise.reject(error);
   },
 );
