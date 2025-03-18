@@ -22,4 +22,12 @@ header {
     color: #fffefe;
     cursor: pointer;
   }
+
+  .username {
+    cursor: pointer;
+  }
+
+  .right {
+    position: relative;
+  }
 }

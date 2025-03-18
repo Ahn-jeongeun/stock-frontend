@@ -5,4 +5,22 @@ const polyAxios = axios.create({
   headers: { Authorization: 'Bearer ' + POLY_API_KEY },
 });
 
-export { polyAxios };
+const _axios = axios.create({
+  baseURL: 'http://localhost:8080/api',
+  headers: {
+    'Content-Type': 'application/json',
+    Authorization: sessionStorage.getItem('auth') ?? '',
+  },
+});
+
+_axios.interceptors.response.use(
+  (res) => {
+    return res;
+  },
+  (error) => {
+    if (error.status === 401) console.log('Please login again.');
+    return Promise.reject(error);
+  },
+);
+
+export { _axios, polyAxios };
