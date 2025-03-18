@@ -1,4 +1,5 @@
 import { _axios } from './axios.js';
+import { TransactionType } from './enum.js';
 
 const username = document.querySelector('.username');
 const walletPopup = document.querySelector('.walletPopup');
@@ -11,7 +12,9 @@ const depositBtn = walletPopup.querySelector('.depositBtn');
 const withdrawBtn = walletPopup.querySelector('.withdrawBtn');
 const confirmBtn = walletPopup.querySelector('.confirmBtn');
 const walletHeader = walletPopup.querySelector('.walletHeader');
-const depositInput = walletPopup.querySelector('.depositInput');
+const inputSection = walletPopup.querySelector('.inputSection');
+const input = inputSection.querySelector('input');
+const helperText = inputSection.querySelector('.helperText');
 
 username.addEventListener('click', async () => {
   // 팝업 오픈
@@ -33,37 +36,55 @@ walletOverlay.addEventListener('click', () => {
   body.style.overflow = 'unset';
 
   walletHeader.innerText = 'Ureka Wallet';
-  depositInput.style.display = 'none';
+  inputSection.style.display = 'none';
   depositBtn.style.display = 'block';
   withdrawBtn.style.display = 'block';
   confirmBtn.style.display = 'none';
+  input.id = '';
+  helperText.innerText = '';
 });
 
 depositBtn.addEventListener('click', async () => {
   walletHeader.innerText = 'Deposit';
-  depositInput.style.display = 'inline';
+  inputSection.style.display = 'inline';
   depositBtn.style.display = 'none';
   withdrawBtn.style.display = 'none';
   confirmBtn.style.display = 'block';
+  input.id = TransactionType.DEPOSIT;
 });
 
 withdrawBtn.addEventListener('click', async () => {
   walletHeader.innerText = 'Withdrawal';
-  depositInput.style.display = 'inline';
+  inputSection.style.display = 'inline';
   depositBtn.style.display = 'none';
   withdrawBtn.style.display = 'none';
   confirmBtn.style.display = 'block';
+  input.id = TransactionType.WITHDRAWAL;
+});
+
+confirmBtn.addEventListener('click', () => {
+  const balanceAmount = Number(balance.innerText.slice(1).split(',').join(''));
+  const isExceedingBalance = balanceAmount < input.value;
+
+  if (input.id === TransactionType.WITHDRAWAL && isExceedingBalance) {
+    helperText.innerText = '잔액이 부족합니다';
+  }
 });
 
 async function getWallet() {
   return await _axios.get('/wallet').then((res) => res.data);
 }
 
-async function deposit() {
-  console.log(account.innerText);
+async function updateWallet() {
   const body = {
     account: account.innerText,
-    amount: 1000,
-    type: 'WITHDRAWAL',
+    amount: input.value,
+    type: input.id,
   };
+
+  return await _axios
+    .post('/wallet', {
+      body,
+    })
+    .then((res) => res.data);
 }

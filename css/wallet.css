@@ -53,12 +53,24 @@
       font-size: 2rem;
     }
 
-    input.deposit {
+    .input-section {
       display: none;
-      border: none;
-      border-radius: 0.6rem;
-      background-color: #e5e7eb;
-      margin: 0;
+      width: 100%;
+
+      input {
+        border: none;
+        border-radius: 0.6rem;
+        background-color: #e5e7eb;
+        margin: 0;
+      }
+
+      .helper-text {
+        color: red;
+        font-weight: 400;
+        display: inline-block;
+        width: 100%;
+        text-align: right;
+      }
     }
   }
 
