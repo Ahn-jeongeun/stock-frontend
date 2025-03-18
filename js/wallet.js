@@ -62,13 +62,16 @@ withdrawBtn.addEventListener('click', async () => {
   input.id = TransactionType.WITHDRAWAL;
 });
 
-confirmBtn.addEventListener('click', () => {
+confirmBtn.addEventListener('click', async () => {
   const balanceAmount = Number(balance.innerText.slice(1).split(',').join(''));
   const isExceedingBalance = balanceAmount < input.value;
 
   if (input.id === TransactionType.WITHDRAWAL && isExceedingBalance) {
     helperText.innerText = '잔액이 부족합니다';
   }
+
+  const res = await updateWallet();
+  console.log(res);
 });
 
 async function getWallet() {
@@ -78,13 +81,9 @@ async function getWallet() {
 async function updateWallet() {
   const body = {
     account: account.innerText,
-    amount: input.value,
+    amount: Number(input.value),
     type: input.id,
   };
 
-  return await _axios
-    .post('/wallet', {
-      body,
-    })
-    .then((res) => res.data);
+  return await _axios.post('/wallet', body);
 }
