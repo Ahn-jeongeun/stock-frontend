@@ -1,3 +1,8 @@
+import './axios.js';
+import './socket.js';
+import './stocks.js';
+import './wallet.js';
+
 document.addEventListener('DOMContentLoaded', function () {
   const signInBtn = document.querySelector('.signInBtn');
   const signUpBtn = document.querySelector('.signUpBtn');
@@ -9,7 +14,6 @@ document.addEventListener('DOMContentLoaded', function () {
   const passwordInput = document.querySelectorAll('#password');
   const signupLink = document.querySelector('.signup-link');
   const signinLink = document.querySelector('.signin-link');
-  const signInForm = document.querySelector('.signInForm');
 
   // 모달 열기 함수 (Sign In)
   function openSigninModal() {
