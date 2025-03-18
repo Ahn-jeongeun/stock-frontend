@@ -16,6 +16,8 @@ const signupLink = document.querySelector('.signup-link');
 const signinLink = document.querySelector('.signin-link');
 const authBtnSection = document.querySelector('.authBtns');
 const logoutBtn = document.getElementById('logoutBtn');
+const modals = document.querySelectorAll('.modal');
+const modalContentList = document.querySelectorAll('.modalContent');
 
 // 모달 열기 함수 (Sign In)
 function openSigninModal() {
@@ -159,4 +161,16 @@ document.getElementById('logoutBtn').addEventListener('click', async (e) => {
     console.error('Logout Error:', error);
     alert('로그아웃에 실패했습니다. 다시 시도해주세요.');
   }
+});
+
+modals.forEach((modal) => {
+  modal.addEventListener('click', () => {
+    modal.style.display = 'none';
+  });
+});
+
+modalContentList.forEach((content) => {
+  content.addEventListener('click', (e) => {
+    e.stopPropagation();
+  });
 });
