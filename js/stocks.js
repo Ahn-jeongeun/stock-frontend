@@ -57,7 +57,7 @@ export function createTableRow(data) {
   chgP.innerText = sign + fixAndLocale(chgPValue) + '%';
   chgP.classList.add('chgP', colorClassName);
 
-  vol.innerText = fixAndLocale(data.volume / MILLION) + 'M';
+  vol.innerText = data.volume ? fixAndLocale(data.volume / MILLION) + 'M' : '-';
   time.innerText = `${data.from.split('-')[1]}/${data.from.split('-')[2]}`;
 
   tr.append(name, avg, high, low, chg, chgP, vol, time);
