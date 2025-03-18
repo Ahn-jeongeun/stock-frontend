@@ -29,5 +29,7 @@ walletOverlay.addEventListener('click', () => {
 });
 
 async function getWallet() {
-  return await _axios.get('/wallet').then((res) => res.data);
+  return await _axios
+    .get('/wallet', { headers: { Authorization: '48cd84fa9d02ffdfd4cc8f84069ec0a207c500f6313d6e522066c48d177a1c95' } })
+    .then((res) => res.data);
 }
