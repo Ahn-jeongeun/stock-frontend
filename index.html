@@ -20,10 +20,13 @@
       <nav>
         <div class="logo">UrekaStocks</div>
         <div class="right">
-          <button class="signInBtn" type="button">Sign In</button>
-          <span> / </span>
-          <button class="signUpBtn" type="button">Sign Up</button>
-          <a class="username">
+          <div class="authBtns">
+            <button class="signInBtn" type="button">Sign In</button>
+            <span> / </span>
+            <button class="signUpBtn" type="button">Sign Up</button>
+          </div>
+          <button class="logout-btn" id="logoutBtn">Logout</button>
+          <a class="username" id="userid">
             <!-- username -->
           </a>
 
@@ -83,23 +86,20 @@
 
     <!-- Sign in modal -->
     <div id="signin" class="modal">
-      <div class="modal-content">
+      <div class="modal-content modalContent">
         <div class="modal-header">
           <span class="back">&#8592;</span>
           <h2>Sign in with Email</h2>
           <span class="close">&times;</span>
         </div>
-        <form class="signInForm">
-          <input type="email" id="email" placeholder="Email" required />
-
+        <form>
+          <input type="email" id="email" placeholder="Email" required autocomplete="username" />
           <div class="password-container">
-            <input type="password" id="password" placeholder="Password" required />
+            <input type="password" id="loginpassword" placeholder="Password" required autocomplete="current-password" />
             <span class="toggle-password">👁️</span>
           </div>
-
           <a href="#" class="forgot-password">Forgot Password</a>
-
-          <button type="submit" class="sign-in-btn">Sign In</button>
+          <button type="submit" class="sign-in-btn" id="loginBtn">Sign In</button>
         </form>
         <p class="signup-text">Don't have an account? <a href="#" class="signup-link">Free Sign Up</a></p>
       </div>
@@ -107,7 +107,7 @@
 
     <!-- Sign up modal -->
     <div id="signup" class="modal">
-      <div class="modal-content">
+      <div class="modal-content modalContent">
         <div class="modal-header">
           <span class="back">&#8592;</span>
           <h2>Sign up with Email</h2>
@@ -115,17 +115,13 @@
         </div>
         <form>
           <input type="name" id="name" placeholder="Name" required />
-
-          <input type="email" id="email" placeholder="Email" required />
-
+          <input type="email" id="signup-email" placeholder="Email" required autocomplete="username" />
           <div class="password-container">
-            <input type="password" id="password" placeholder="Password" required />
-            <span class="toggle-password">👁️</span>
+            <input type="password" id="signuppassword" placeholder="Password" required autocomplete="new-password" />
+            <span class="toggle-password"></span>
           </div>
-
           <br />
-
-          <button type="submit" class="sign-in-btn">Create Account</button>
+          <button type="submit" class="sign-in-btn" id="signupBtn">Create Account</button>
         </form>
         <p class="signup-text">Already have an account? <a href="#" class="signin-link">Sign In</a></p>
       </div>
