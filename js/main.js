@@ -1,3 +1,8 @@
+import './axios.js';
+import './socket.js';
+import './stocks.js';
+import './wallet.js';
+
 document.addEventListener('DOMContentLoaded', function () {
   const signInBtn = document.querySelector('.signInBtn');
   const signUpBtn = document.querySelector('.signUpBtn');
