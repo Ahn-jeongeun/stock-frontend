@@ -65,12 +65,4 @@ document.addEventListener('DOMContentLoaded', function () {
       });
     });
   });
-
-  signInForm.addEventListener('submit', (e) => {
-    e.preventDefault();
-    const email = e.target[0].value;
-    const pwd = e.target[1].value;
-    console.log(e);
-    console.log(e.target[0].value);
-  });
 });
