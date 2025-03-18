@@ -29,5 +29,11 @@ header {
 
   .right {
     position: relative;
+    display: flex;
+    align-items: center;
+
+    .logout-btn {
+      display: none;
+    }
   }
 }

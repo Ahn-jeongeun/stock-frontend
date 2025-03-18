@@ -14,6 +14,8 @@ const togglePassword = document.querySelectorAll('.toggle-password');
 const passwordInput = document.querySelectorAll('#password');
 const signupLink = document.querySelector('.signup-link');
 const signinLink = document.querySelector('.signin-link');
+const authBtnSection = document.querySelector('.authBtns');
+const logoutBtn = document.getElementById('logoutBtn');
 
 // 모달 열기 함수 (Sign In)
 function openSigninModal() {
@@ -111,8 +113,9 @@ document.getElementById('loginBtn').addEventListener('click', async (e) => {
     const response = await _axios.post('/users/login', data);
 
     // 로그인 성공 시 사용자 이름과 로그아웃 버튼 표시
-    document.getElementById('userid').innerHTML = `${response.data.name}
-      <button id="logoutBtn">Log out</button>`;
+    document.getElementById('userid').innerHTML = response.data.name;
+    authBtnSection.style.display = 'none';
+    logoutBtn.style.display = 'block';
     // 로그인 창 숨기기
     signinModal.style.display = 'none';
 
@@ -132,8 +135,9 @@ const name = sessionStorage.getItem('name');
 
 if (Authorization && name) {
   // 토큰이 있으면 로그인 상태로 처리
-  document.getElementById('userid').innerHTML = `${name}
-    <button id="logoutBtn">Logout</button>`;
+  document.getElementById('userid').innerHTML = name;
+  authBtnSection.style.display = 'none';
+  logoutBtn.style.display = 'block';
 }
 
 //로그아웃
