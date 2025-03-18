@@ -63,15 +63,32 @@ withdrawBtn.addEventListener('click', async () => {
 });
 
 confirmBtn.addEventListener('click', async () => {
-  const balanceAmount = Number(balance.innerText.slice(1).split(',').join(''));
-  const isExceedingBalance = balanceAmount < input.value;
+  const amount = Number(input.value);
+  const typeString = input.id === TransactionType.DEPOSIT ? '입금' : '출금';
 
-  if (input.id === TransactionType.WITHDRAWAL && isExceedingBalance) {
-    helperText.innerText = '잔액이 부족합니다';
+  if (amount <= 0) {
+    helperText.classList.remove('ok');
+    helperText.classList.add('error');
+    helperText.innerText = `1원부터 ${typeString} 가능합니다`;
+    return;
   }
 
-  const res = await updateWallet();
-  console.log(res);
+  const balanceAmount = Number(balance.innerText.slice(1).split(',').join(''));
+  const isExceedingBalance = balanceAmount < amount;
+
+  if (input.id === TransactionType.WITHDRAWAL && isExceedingBalance) {
+    helperText.classList.remove('ok');
+    helperText.classList.add('error');
+    helperText.innerText = '잔액이 부족합니다';
+    return;
+  }
+
+  const data = await updateWallet();
+  balance.innerText = '$' + data.balance.toLocaleString();
+  helperText.classList.remove('error');
+  helperText.classList.add('ok');
+  helperText.innerText = `${typeString}되었습니다`;
+  input.value = '';
 });
 
 async function getWallet() {
@@ -85,5 +102,5 @@ async function updateWallet() {
     type: input.id,
   };
 
-  return await _axios.post('/wallet', body);
+  return await _axios.post('/wallet', body).then((res) => res.data);
 }
