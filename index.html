@@ -27,11 +27,29 @@
     <header>
       <nav>
         <div class="logo">UrekaStocks</div>
-        <div>
+        <div class="right">
           <button class="signInBtn" type="button">Sign In</button>
           <span> / </span>
           <button class="signUpBtn" type="button">Sign Up</button>
-          <span class="userId user-id">사용자ID</span>
+          <a class="username"> 유레카 </a>
+
+          <!-- Wallet Popup -->
+          <div class="wallet">
+            <div class="wallet-header">Ureka Wallet</div>
+            <div class="wallet-body">
+              <div class="account">
+                <img src="img/dollar.svg" alt="달러 코인" />
+                <span>유레카</span>
+                <span>53824450024641</span>
+              </div>
+              <div class="balance">$1,000</div>
+            </div>
+            <div class="wallet-footer">
+              <button>Deposite</button>
+              <button>Withdraw</button>
+            </div>
+          </div>
+          <div class="wallet-overlay" />
         </div>
       </nav>
     </header>
@@ -64,7 +82,7 @@
           <h2>Sign in with Email</h2>
           <span class="close">&times;</span>
         </div>
-        <form>
+        <form class="signInForm">
           <input type="email" id="email" placeholder="Email" required />
 
           <div class="password-container">

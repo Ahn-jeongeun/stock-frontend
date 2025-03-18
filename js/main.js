@@ -9,6 +9,7 @@ document.addEventListener('DOMContentLoaded', function () {
   const passwordInput = document.querySelectorAll('#password');
   const signupLink = document.querySelector('.signup-link');
   const signinLink = document.querySelector('.signin-link');
+  const signInForm = document.querySelector('.signInForm');
 
   // 모달 열기 함수 (Sign In)
   function openSigninModal() {
@@ -63,5 +64,13 @@ document.addEventListener('DOMContentLoaded', function () {
         input.type = input.type === 'password' ? 'text' : 'password';
       });
     });
+  });
+
+  signInForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const email = e.target[0].value;
+    const pwd = e.target[1].value;
+    console.log(e);
+    console.log(e.target[0].value);
   });
 });
