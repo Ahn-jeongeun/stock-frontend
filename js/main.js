@@ -108,18 +108,20 @@ document.addEventListener('DOMContentLoaded', function () {
 
       // 로그인 성공 시 사용자 이름과 로그아웃 버튼 표시
       document.getElementById("userid").innerHTML = `${response.data.name}
-        <button class="btn btn-danger btn-sm" id="logoutBtn">Logout</button>`;
+        <button class="btn btn-danger btn-sm" id="logoutBtn">Log out</button>`;
 
       // 로그인 창 숨기기
       document.getElementById('signin').style.display = 'none';
 
       // 토큰과 이름을 세션 스토리지에 저장
-      const token = response.data.Authorization;
+      console.log(response.data);
+      const token = response.data.token;
       sessionStorage.setItem('Authorization', token);
       sessionStorage.setItem('name', response.data.name);
 
       // Axios 기본 헤더에 Authorization 토큰 추가
       axios.defaults.headers.common['Authorization'] = token;
+      location.reload();
 
     } catch (error) {
       console.error("Login Error:", error);
@@ -138,42 +140,44 @@ document.addEventListener('DOMContentLoaded', function () {
       <button class="btn btn-danger btn-sm" id="logoutBtn">Logout</button>`;
   }
 
-  //로그아웃처리
+  //로그아웃
   document.getElementById('logoutBtn').addEventListener('click', async (e) => {
-    e.preventDefault(); 
+    e.preventDefault(); // 기본 이벤트 취소
   
-    const token = sessionStorage.getItem("Authorization");
+    const token = sessionStorage.getItem("Authorization"); // 세션에서 JWT 토큰 가져오기
   
+    // 토큰이 없으면 로그인되지 않은 상태임
     if (!token) {
       alert("로그인 상태가 아닙니다.");
       return;
     }
   
     try {
-      // 로그아웃 요청 보내기
+      // 로그아웃 요청 보내기 (백엔드에서 로그아웃 처리)
       await axios.post("http://localhost:8080/api/users/logout", {}, {
         headers: {
           'Authorization': `Bearer ${token}` // Authorization 헤더에 Bearer 토큰 포함
         }
       });
   
-      
+      // 로그아웃 성공 시 세션 스토리지에서 토큰 및 사용자 정보 삭제
       sessionStorage.removeItem("Authorization");
       sessionStorage.removeItem("name");
   
-    
+      // axios 기본 헤더에서 Authorization 삭제
       delete axios.defaults.headers.common['Authorization'];
   
-      // 로그아웃 성공 시
+      // 로그아웃 알림 후 페이지 새로고침
       alert("로그아웃 되었습니다.");
-      window.location.reload();
+      window.location.reload(); // 새로 고침으로 상태 초기화
   
     } catch (error) {
+      // 로그아웃 실패 시 에러 처리
       console.error("Logout Error:", error);
       alert("로그아웃에 실패했습니다. 다시 시도해주세요.");
     }
   });
-
+  
 
   
 });
