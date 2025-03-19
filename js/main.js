@@ -1,4 +1,3 @@
-import './axios.js';
 import { _axios } from './axios.js';
 import './socket.js';
 import './stocks.js';

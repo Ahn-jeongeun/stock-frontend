@@ -17,10 +17,6 @@ _axios.interceptors.request.use(
     config.headers.Authorization = sessionStorage.getItem('Authorization') ?? '';
     return config;
   },
-  (error) => {
-    if (error.status === 401) console.log('Please login again.');
-    return Promise.reject(error);
-  },
 );
 
 _axios.interceptors.response.use(
@@ -34,3 +30,4 @@ _axios.interceptors.response.use(
 );
 
 export { _axios, polyAxios };
+

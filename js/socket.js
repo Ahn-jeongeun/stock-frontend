@@ -1,7 +1,6 @@
 import { POLY_API_KEY } from './config.js';
+import { TOP_10_IT_TICKERS } from './enum.js';
 import { fixAndLocale } from './util.js';
-
-const TOP_10_IT_TICKERS = 'AM.AAPL,AM.MSFT,AM.NVDA,AM.GOOGL,AM.AMZN,AM.META,AM.TSLA,AM.AVGO,AM.TSM,AM.BRK.A';
 
 const tbody = document.querySelector('tbody');
 const socket = new WebSocket('wss://delayed.polygon.io/stocks');
@@ -20,7 +19,7 @@ socket.addEventListener('message', (e) => {
     socket.send(
       JSON.stringify({
         action: 'subscribe',
-        params: TOP_10_IT_TICKERS,
+        params: TOP_10_IT_TICKERS.map((ticker) => `AM.${ticker}`).join(','),
       }),
     );
   }
