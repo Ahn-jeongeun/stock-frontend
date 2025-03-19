@@ -1,10 +1,10 @@
 import { polyAxios } from './axios.js';
+import { TOP_10_IT_TICKERS } from './enum.js';
 import { fixAndLocale } from './util.js';
 
 dayjs.locale('ko');
 
 const MILLION = 1000000;
-const tickers = ['AAPL', 'MSFT', 'NVDA', 'GOOGL', 'AMZN', 'META', 'TSLA', 'AVGO', 'TSM', 'BRK.A'];
 const tbody = document.querySelector('tbody');
 
 window.addEventListener('load', async () => {
@@ -16,7 +16,7 @@ window.addEventListener('load', async () => {
 async function getRecentStocks(dayjs) {
   let results = [];
   try {
-    results = await Promise.all(tickers.map((ticker) => getStocks(ticker, dayjs.format('YYYY-MM-DD'))));
+    results = await Promise.all(TOP_10_IT_TICKERS.map((ticker) => getStocks(ticker, dayjs.format('YYYY-MM-DD'))));
   } catch (err) {
     dayjs = dayjs.subtract(1, 'day');
     results = await getRecentStocks(dayjs);
