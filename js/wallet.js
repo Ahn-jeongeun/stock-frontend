@@ -54,7 +54,7 @@ depositBtn.addEventListener('click', async () => {
 });
 
 withdrawBtn.addEventListener('click', async () => {
-  walletHeader.innerText = 'Withdrawal';
+  walletHeader.innerText = 'Withdraw';
   inputSection.style.display = 'inline';
   depositBtn.style.display = 'none';
   withdrawBtn.style.display = 'none';
