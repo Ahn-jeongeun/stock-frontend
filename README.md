@@ -65,6 +65,19 @@ Polygon이 404 에러를 반환하였습니다.
 
 주식 정보를 요청하는 함수에 try-catch문을 사용하여, 404 에러가 발생할 경우 날짜를 하나 줄이고 함수를 재귀 호출하여 다시 주식 데이터를 요청했습니다.
 
+```js
+async function getRecentStocks(dayjs) {
+  let results = [];
+  try {
+    results = await Promise.all(TOP_10_IT_TICKERS.map((ticker) => getStocks(ticker, dayjs.format('YYYY-MM-DD'))));
+  } catch (err) {
+    dayjs = dayjs.subtract(1, 'day');
+    results = await getRecentStocks(dayjs);
+  }
+  return results;
+}
+```
+
 ## 기술 스택
 
 - 웹: HTML, CSS, Javascript
