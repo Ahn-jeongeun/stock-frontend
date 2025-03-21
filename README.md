@@ -1,10 +1,14 @@
 # 실시간 주식 정보 조회 웹 서비스
 
-![프로젝트 로고](/img/urecastock.svg)
+<div>
+
+</div>
+
+![프로젝트 로고](/img/urecastock-bg.png)
 
 실시간 주식 정보 조회 및 입출금 기능을 개발하며 보얀 취약점을 제고하고 실시간 통신을 구현해봤습니다.
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/JFfyY8l5ogk?si=u1z4pmygW87-_ITr" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+- 시연 영상: https://youtu.be/JFfyY8l5ogk?si=dhuO34P-ooW7wICu
 
 ## 목차
 
@@ -63,7 +67,7 @@ Polygon이 404 에러를 반환하였습니다.
 
 ## 기술 스택
 
-- 웹: HTML, CSS, Javascript`
+- 웹: HTML, CSS, Javascript
 - HTTP 통신: Axios
 - 날짜 포맷팅: day.js
 - 주식 API: [Polygon.io](https://polygon.io/)
